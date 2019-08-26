@@ -12,14 +12,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
 @Configuration
-public class DataSourceConfig
-{
+public class DataSourceConfig {
     @Autowired
     private Environment env;
 
     @Bean(name = "dsCustom")
-    public DataSource dataSource()
-    {
+    public DataSource dataSource() {
         String myUrlString = "";
         String myDriverClass = "";
         String myDBUser = "";
@@ -27,14 +25,13 @@ public class DataSourceConfig
 
         String dbValue = env.getProperty("local.run.db");
 
-        if (dbValue.equalsIgnoreCase("POSTGRESQL"))
-        {
-            myUrlString = "jdbc:postgresql://" + System.getenv("MYDBHOST") + ":5432/" + System.getenv("MYDBNAME");
+        if (dbValue.equalsIgnoreCase("POSTGRESQL")) {
+//            myUrlString = "jdbc:postgresql://" + System.getenv("MYDBHOST") + ":5432/" + System.getenv("MYDBNAME");
+            myUrlString = "jdbc:postgresql://" + "ec2-107-20-155-148.compute-1.amazonaws.com" + ":5432/" + "dcpdra9vuotrj9";
             myDriverClass = "org.postgresql.Driver";
             myDBUser = System.getenv("MYDBUSER");
             myDBPassword = System.getenv("MYDBPASSWORD");
-        } else
-        {
+        } else {
             // Assumes H2
             myUrlString = "jdbc:h2:mem:testdb";
             myDriverClass = "org.h2.Driver";
@@ -43,7 +40,12 @@ public class DataSourceConfig
         }
 
         System.out.println(myUrlString);
-        return DataSourceBuilder.create().username(myDBUser).password(myDBPassword).url(myUrlString).driverClassName(myDriverClass).build();
+        return DataSourceBuilder.create()
+                                .username(myDBUser)
+                                .password(myDBPassword)
+                                .url(myUrlString)
+                                .driverClassName(myDriverClass)
+                                .build();
     }
 
     @Bean(name = "jdbcCustom")
@@ -51,8 +53,7 @@ public class DataSourceConfig
     @Autowired
     public JdbcTemplate jdbcTemplate(
             @Qualifier("dsCustom")
-                    DataSource dsCustom)
-    {
+                    DataSource dsCustom) {
         return new JdbcTemplate(dsCustom);
     }
 }

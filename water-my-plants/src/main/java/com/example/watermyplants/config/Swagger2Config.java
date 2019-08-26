@@ -13,20 +13,26 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 // http://localhost:2019/swagger-ui.html
 @Configuration
-public class Swagger2Config
-{
+public class Swagger2Config {
     @Bean
-    public Docket api()
-    {
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                //                .apis(RequestHandlerSelectors.any())
-                .apis(RequestHandlerSelectors.basePackage("com.example.watermyplants")).paths(PathSelectors.any()).build().useDefaultResponseMessages(false) // Allows only my exception responses
-                .ignoredParameterTypes(Pageable.class) // allows only my paging parameter list
-                .apiInfo(apiEndPointsInfo());
+                                                      //                .apis(RequestHandlerSelectors.any())
+                                                      .apis(RequestHandlerSelectors.basePackage("com.example.watermyplants"))
+                                                      .paths(PathSelectors.any())
+                                                      .build()
+                                                      .useDefaultResponseMessages(false) // Allows only my exception responses
+                                                      .ignoredParameterTypes(Pageable.class) // allows only my paging parameter list
+                                                      .apiInfo(apiEndPointsInfo());
     }
 
-    private ApiInfo apiEndPointsInfo()
-    {
-        return new ApiInfoBuilder().title("Java Spring Back End Starting Project").description("A starting application for developing Java Spring Back End Projects").contact(new Contact("Doc Jones", "http://www.lambdaschool.com", "demoney0119@gmail.com")).license("MIT").licenseUrl("https://github.com/LambdaSchool/doc-jones").version("1.0.0").build();
+    private ApiInfo apiEndPointsInfo() {
+        return new ApiInfoBuilder().title("Java Spring Back End Starting Project")
+                                   .description("A starting application for developing Java Spring Back End Projects")
+                                   .contact(new Contact("Doc Jones", "http://www.lambdaschool.com", "demoney0119@gmail.com"))
+                                   .license("MIT")
+                                   .licenseUrl("https://github.com/LambdaSchool/doc-jones")
+                                   .version("1.0.0")
+                                   .build();
     }
 }

@@ -18,8 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/otherapis")
-public class APIsController
-{
+public class APIsController {
     private static final Logger logger = LoggerFactory.getLogger(RolesController.class);
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -33,14 +32,13 @@ public class APIsController
             produces = {"application/json"})
     public ResponseEntity<?> listABookGivenISBN(HttpServletRequest request,
                                                 @PathVariable
-                                                        String isbn)
-    {
-        logger.trace(request.getMethod().toUpperCase() + " " + request.getRequestURI() + " accessed");
+                                                        String isbn) {
+        logger.trace(request.getMethod()
+                            .toUpperCase() + " " + request.getRequestURI() + " accessed");
 
         String requestURL = "https://openlibrary.org/api/books?bibkeys=" + "ISBN:" + isbn + "&format=json";
 
-        ParameterizedTypeReference<Map<String, APIOpenLibrary>> responseType = new ParameterizedTypeReference<Map<String, APIOpenLibrary>>()
-        {
+        ParameterizedTypeReference<Map<String, APIOpenLibrary>> responseType = new ParameterizedTypeReference<Map<String, APIOpenLibrary>>() {
         };
         ResponseEntity<Map<String, APIOpenLibrary>> responseEntity = restTemplate.exchange(requestURL, HttpMethod.GET, null, responseType);
 

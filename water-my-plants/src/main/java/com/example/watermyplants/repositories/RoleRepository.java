@@ -7,8 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-public interface RoleRepository extends CrudRepository<Role, Long>
-{
+public interface RoleRepository extends CrudRepository<Role, Long> {
     @Transactional
     @Modifying
     @Query(value = "DELETE from UserRoles where userid = :userid")

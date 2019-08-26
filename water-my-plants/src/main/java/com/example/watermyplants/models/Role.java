@@ -8,8 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "roles")
-public class Role extends Auditable
-{
+public class Role extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long roleid;
@@ -23,42 +22,34 @@ public class Role extends Auditable
     @JsonIgnoreProperties("role")
     private List<UserRoles> userRoles = new ArrayList<>();
 
-    public Role()
-    {
+    public Role() {
     }
 
-    public Role(String name)
-    {
+    public Role(String name) {
         this.name = name;
     }
 
-    public long getRoleid()
-    {
+    public long getRoleid() {
         return roleid;
     }
 
-    public void setRoleid(long roleid)
-    {
+    public void setRoleid(long roleid) {
         this.roleid = roleid;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public List<UserRoles> getUserRoles()
-    {
+    public List<UserRoles> getUserRoles() {
         return userRoles;
     }
 
-    public void setUserRoles(List<UserRoles> userRoles)
-    {
+    public void setUserRoles(List<UserRoles> userRoles) {
         this.userRoles = userRoles;
     }
 }

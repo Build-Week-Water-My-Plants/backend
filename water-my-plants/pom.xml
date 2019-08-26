@@ -154,7 +154,6 @@
                     <appName>doc-watermyplants</appName>
                     <includeTarget>false</includeTarget>
                     <includes>
-                        <!--   For windows      <include>${project.build.directory}\${project.build.finalName}.jar</include>-->
                         <include>${project.build.directory}/${project.build.finalName}.jar</include>
                     </includes>
                     <jdkVersion>${java.version}</jdkVersion>

@@ -12,20 +12,18 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class LogoutController
-{
+public class LogoutController {
     @Autowired
     private TokenStore tokenStore;
 
     @RequestMapping(value = "/oauth/revoke-token",
             method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public void logout(HttpServletRequest request)
-    {
+    public void logout(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
-        if (authHeader != null)
-        {
-            String tokenValue = authHeader.replace("Bearer", "").trim();
+        if (authHeader != null) {
+            String tokenValue = authHeader.replace("Bearer", "")
+                                          .trim();
             OAuth2AccessToken accessToken = tokenStore.readAccessToken(tokenValue);
             tokenStore.removeAccessToken(accessToken);
         }

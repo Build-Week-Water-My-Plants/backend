@@ -13,16 +13,13 @@ import java.io.IOException;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class SimpleCorsFilter implements Filter
-{
+public class SimpleCorsFilter implements Filter {
 
-    public SimpleCorsFilter()
-    {
+    public SimpleCorsFilter() {
     }
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException
-    {
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest) req;
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -32,22 +29,19 @@ public class SimpleCorsFilter implements Filter
         response.setHeader("Access-Control-Allow-Headers", "*");
         response.setHeader("Access-Control-Max-Age", "3600");
 
-        if (HttpMethod.OPTIONS.name().equalsIgnoreCase(((HttpServletRequest) req).getMethod()))
-        {
+        if (HttpMethod.OPTIONS.name()
+                              .equalsIgnoreCase(((HttpServletRequest) req).getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
-        } else
-        {
+        } else {
             chain.doFilter(req, res);
         }
     }
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException
-    {
+    public void init(FilterConfig filterConfig) throws ServletException {
     }
 
     @Override
-    public void destroy()
-    {
+    public void destroy() {
     }
 }
