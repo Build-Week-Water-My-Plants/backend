@@ -18,6 +18,8 @@ target/
 *.iws
 *.iml
 *.ipr
+application-heroku.properties
+application-local.propoerties
 
 ### NetBeans ###
 /nbproject/private/
