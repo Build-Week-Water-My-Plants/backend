@@ -44,6 +44,10 @@ public class Plant extends Auditable{
         this.user = user;
     }
 
+    public Plant(long plantid, User currentUser) {
+        super();
+    }
+
     public long getPlantid() {
         return plantid;
     }
@@ -91,5 +95,6 @@ public class Plant extends Auditable{
     public void setUser(User user) {
         this.user = user;
     }
+    
 }
 

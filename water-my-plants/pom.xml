@@ -139,11 +139,26 @@
             <version>7.41.2</version>
             <scope>runtime</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.cloudinary</groupId>-->
-<!--            <artifactId>cloudinary-http44</artifactId>-->
-<!--            <version>[Cloudinary API version, e.g. 1.1.3]</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.lambdaschool</groupId>
+            <artifactId>mentorme</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>7.41.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.cloudinary</groupId>
+            <artifactId>cloudinary-http44</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

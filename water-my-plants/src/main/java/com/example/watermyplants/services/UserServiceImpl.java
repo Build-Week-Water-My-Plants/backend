@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserDetailsService, UserService
 
         for (Plant p : user.getPlants())
         {
-            newUser.getPlants().add(new Plant(p.getPlant(), newUser));
+            newUser.getPlants().add(new Plant(p.getPlantid(), newUser));
         }
 
         return userrepososity.save(newUser);
@@ -127,7 +127,7 @@ public class UserServiceImpl implements UserDetailsService, UserService
                 {
                     for (Plant p : user.getPlants())
                     {
-                        currentUser.getPlants().add(new Plant(p.getPlant(), currentUser));
+                        currentUser.getPlants().add(new Plant(p.getPlantid(), currentUser));
                     }
                 }
 
