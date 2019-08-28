@@ -66,11 +66,11 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="org.springframework.boot" level="INFO">
+    <logger name="org.springframework.boot" level="DEBUG">
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="com.lambdaschool" level="INFO">
+    <logger name="com.example" level="DEBUG">
         <appender-ref ref="STDOUT" />
     </logger>
 </configuration>

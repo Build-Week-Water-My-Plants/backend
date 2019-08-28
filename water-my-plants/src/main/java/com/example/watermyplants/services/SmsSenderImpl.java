@@ -40,10 +40,6 @@ public class SmsSenderImpl implements SmsSender {
 
     }
 
-
-
-
-
     private boolean isPhoneNumberValid(String phoneNumber) {
 
         return true;

@@ -53,7 +53,6 @@ public class NewUserController {
                                                           .toUri();
         responseHeaders.setLocation(newRestaurantURI);
 
-
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 

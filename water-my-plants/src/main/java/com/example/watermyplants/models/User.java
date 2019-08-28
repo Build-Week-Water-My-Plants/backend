@@ -27,7 +27,7 @@ public class User extends Auditable
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @Column(nullable = false)
+    @Column
     private String phonenumber;
 
     @OneToMany(mappedBy = "user",
@@ -45,16 +45,18 @@ public class User extends Auditable
     {
     }
 
-    public User(String username, String password, List<UserRoles> userRoles)
+    public User(String username, String password, String phonenumber, List<UserRoles> userRoles)
     {
         setUsername(username);
         setPassword(password);
+        setPhonenumber(phonenumber);
         for (UserRoles ur : userRoles)
         {
             ur.setUser(this);
         }
         this.userRoles = userRoles;
     }
+
 
     public long getUserid()
     {

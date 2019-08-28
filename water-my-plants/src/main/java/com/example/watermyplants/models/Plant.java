@@ -4,11 +4,11 @@ package com.example.watermyplants.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "plants")
 public class Plant extends Auditable{
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,10 +21,10 @@ public class Plant extends Auditable{
     private String name;
 
     @Column(nullable = false)
-    private String dayofweek;
+    private String time;
 
-    @Column(nullable = false)
-    private Date time;
+    @Column
+    private String location;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid",
@@ -36,17 +36,18 @@ public class Plant extends Auditable{
 
     }
 
-    public Plant(String species, String name, String dayofweek, Date time, User user) {
+    public Plant(String species, String name, String time, String location, User user) {
         this.species = species;
         this.name = name;
-        this.dayofweek = dayofweek;
         this.time = time;
+        this.location = location;
         this.user = user;
     }
 
     public Plant(long plantid, User currentUser) {
         super();
     }
+
 
     public long getPlantid() {
         return plantid;
@@ -72,20 +73,20 @@ public class Plant extends Auditable{
         this.name = name;
     }
 
-    public String getDayofweek() {
-        return dayofweek;
-    }
-
-    public void setDayofweek(String dayofweek) {
-        this.dayofweek = dayofweek;
-    }
-
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public User getUser() {
