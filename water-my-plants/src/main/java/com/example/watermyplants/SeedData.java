@@ -64,6 +64,7 @@ public class SeedData implements CommandLineRunner {
         u3.getPlants().add(new Plant("Spider plant", "Charlotte", "28-08-2019 8:30:00", "Bedroom", u3));
         u3.getPlants().add(new Plant("Sword Fern", "JonSnow", "28-08-2019 10:30:00", "Back Deck", u3));
         u3.getPlants().add(new Plant("Rubber Fig", "pokemon", "28-08-2019 9:00:00", "Family Room", u3));
+        userRepository.save(u3);
 
         users = new ArrayList<>();
         users.add(new UserRoles(new User(), r2));

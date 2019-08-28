@@ -26,8 +26,8 @@ public class DataSourceConfig {
         String dbValue = env.getProperty("local.run.db");
 
         if (dbValue.equalsIgnoreCase("POSTGRESQL")) {
-//            myUrlString = "jdbc:postgresql://" + System.getenv("MYDBHOST") + ":5432/" + System.getenv("MYDBNAME");
-            myUrlString = "jdbc:postgresql://" + "ec2-107-20-155-148.compute-1.amazonaws.com" + ":5432/" + "dcpdra9vuotrj9";
+            myUrlString = "jdbc:postgresql://" + System.getenv("MYDBHOST") + ":5432/" + System.getenv("MYDBNAME");
+//            myUrlString = "jdbc:postgresql://" + "ec2-107-20-155-148.compute-1.amazonaws.com" + ":5432/" + "dcpdra9vuotrj9";
             myDriverClass = "org.postgresql.Driver";
             myDBUser = System.getenv("MYDBUSER");
             myDBPassword = System.getenv("MYDBPASSWORD");
