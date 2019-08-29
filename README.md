@@ -15,9 +15,9 @@
 
 ## Usage
 
-```sh
-Clone the repo, open in IntelliJ and pray for good luck!
-```
+  
+**Clone the repo, open in IntelliJ and pray for good luck!**
+
 
 ## Author
 
