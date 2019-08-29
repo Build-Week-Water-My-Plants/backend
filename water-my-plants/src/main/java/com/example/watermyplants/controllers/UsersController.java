@@ -59,8 +59,9 @@ public class UsersController {
     public ResponseEntity<?> getCurrentUserName(HttpServletRequest request, Authentication authentication) {
         logger.trace(request.getMethod()
                             .toUpperCase() + " " + request.getRequestURI() + " accessed");
+        User currentUser = userService.findUserByUsername(authentication.getName());
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
 
-        return new ResponseEntity<>(authentication.getPrincipal(), HttpStatus.OK);
     }
 
 

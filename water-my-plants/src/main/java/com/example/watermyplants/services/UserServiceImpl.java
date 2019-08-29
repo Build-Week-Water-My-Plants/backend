@@ -53,6 +53,19 @@ public class UserServiceImpl implements UserDetailsService, UserService
     }
 
     @Override
+    public User findUserByUsername(String username)
+    {
+        User currentUser = userrepososity.findByUsername(username);
+        if (currentUser != null)
+        {
+            return currentUser;
+        } else
+        {
+            throw new ResourceNotFoundException("The " + username + " is not in the system");
+        }
+    }
+
+    @Override
     public void delete(long id)
     {
         if (userrepososity.findById(id).isPresent())
