@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Water My Plants 👋</h1>
+<h1 align="center">Welcome to Water My Plants 👋 :ambulance: :teamwmp:</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000" />
   <a href="github.com/Build-Week-Water-My-Plants/backend/blob/master/LICENSE">
@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> You drink water. You get sunlight. Your plants are basically you with less complicated emotions. WaterMyPlants will turn you from a murderer of carbon-based lifeforms to a caring plant owner.  Setup your account, add your phone number and enter the plants whose lives you wish to save. WaterMyPlants will send you text message reminders to water Sir Foliage von Desktop and the other green creatures in your charge.  Save money! You'll no longer need to purchase a new plant every Spring, because WaterMyPlants help you save the ones you have. 
+> You drink water. You get sunlight. Your plants are basically you with less complicated emotions. WaterMyPlants will turn you from a murderer of carbon-based lifeforms into a caring plant owner.  Setup your account, add your phone number and enter the plants whose lives you wish to save. WaterMyPlants will send you text message reminders to water Sir Foliage von Desktop and the other green creatures in your charge.  Save money! You'll no longer need to purchase a new plant every Spring, because WaterMyPlants help you save the ones you have. 
 
 
 
