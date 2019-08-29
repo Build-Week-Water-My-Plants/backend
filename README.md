@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> You need water. You need sunlight. Your plants are basically you with less complicated emotions. WaterMyPlants will turn you from a murderer of carbon-based lifeforms into a caring plant owner.  Setup your account, add your phone number and enter the plants whose lives you wish to save. WaterMyPlants will send you text message reminders to water Sir Foliage von Desktop and the other green creatures in your charge.  Save money! You'll no longer need to purchase a new plant every Spring, because WaterMyPlants help you save the ones you have. 
+> You need water. You need sunlight. Your plants are basically you with less complicated emotions. WaterMyPlants will turn you from a murderer of carbon-based lifeforms into a caring plant owner.  Setup your account, add your phone number and enter the plants whose lives you wish to save. WaterMyPlants will send you text message reminders to water Sir Foliage von Desktop and the other green creatures in your charge.  Save money! You'll no longer need to purchase a new plant every Spring, because WaterMyPlants will help you save the ones you have. 
 
 
 
