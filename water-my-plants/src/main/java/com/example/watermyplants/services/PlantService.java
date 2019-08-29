@@ -1,6 +1,7 @@
 package com.example.watermyplants.services;
 
 import com.example.watermyplants.models.Plant;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
@@ -14,5 +15,6 @@ public interface PlantService {
 
     void delete(long id);
 
-    Plant save(Plant plant);
+    Plant save(Plant plant, Authentication authentication);
+
 }

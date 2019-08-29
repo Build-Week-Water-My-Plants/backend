@@ -1,12 +1,15 @@
 package com.example.watermyplants.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.validation.constraints.NotBlank;
 
 public class SmsRequest {
 
+
     @NotBlank
-    private final String phoneNumber;  //destination number
+    private String phoneNumber;
 
     @NotBlank
     private final String message;
