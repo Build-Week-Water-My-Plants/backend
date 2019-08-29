@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Water My Plants 👋 :ambulance: :teamwmp:</h1>
+<h1 align="center">Welcome to Water My Plants :ambulance:</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-v1.0-blue.svg?cacheSeconds=2592000" />
   <a href="github.com/Build-Week-Water-My-Plants/backend/blob/master/LICENSE">
