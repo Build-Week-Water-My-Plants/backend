@@ -17,4 +17,5 @@ public interface PlantService {
 
     Plant save(Plant plant, Authentication authentication);
 
+    Plant save(Plant newPlant);
 }

@@ -78,6 +78,11 @@ public class PlantServiceImpl implements PlantService{
     }
 
     @Override
+    public Plant save(Plant newPlant) {
+        return newPlant;
+    }
+
+    @Override
     public List<Plant> findByUserName(String username)
     {
         List<Plant> list = new ArrayList<>();
