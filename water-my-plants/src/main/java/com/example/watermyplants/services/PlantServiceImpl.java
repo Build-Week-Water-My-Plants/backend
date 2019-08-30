@@ -1,9 +1,9 @@
 package com.example.watermyplants.services;
 
-
 import com.example.watermyplants.exceptions.ResourceNotFoundException;
 import com.example.watermyplants.models.Plant;
 import com.example.watermyplants.models.SmsRequest;
+import com.example.watermyplants.models.User;
 import com.example.watermyplants.repositories.PlantRepository;
 import com.example.watermyplants.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service(value = "plantService")
-public class PlantServiceImpl implements PlantService{
-
-    @Autowired
-    private PlantRepository plantRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
+public class PlantServiceImpl implements PlantService
+{
     @Autowired
     private SmsSender smsSender;
 
@@ -35,17 +29,26 @@ public class PlantServiceImpl implements PlantService{
     private String destinationNumber;
 
 
+    @Autowired
+    private UserRepository userRepository;
+
+
+    @Autowired
+    private PlantRepository plantRepository;
+
     @Override
-    public List<Plant> findAll() {
+    public List<Plant> findAll()
+    {
         List<Plant> list = new ArrayList<>();
-        plantRepository.findAll().iterator().forEachRemaining((list::add));
+        plantRepository.findAll().iterator().forEachRemaining(list::add);
         return list;
     }
 
     @Override
     public Plant findPlantById(long id)
     {
-        return plantRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Long.toString(id)));
+        return plantRepository.findById(id)
+                              .orElseThrow(() -> new ResourceNotFoundException(Long.toString(id)));
     }
 
     @Override
@@ -57,11 +60,13 @@ public class PlantServiceImpl implements PlantService{
             if (plantRepository.findById(id).get().getUser().getUsername().equalsIgnoreCase(authentication.getName()))
             {
                 plantRepository.deleteById(id);
-            } else
-            {
-                throw new ResourceNotFoundException(id + " " + authentication.getName());
             }
-        } else
+            else
+            {
+                throw new ResourceNotFoundException(Long.toString(id) + " " + authentication.getName());
+            }
+        }
+        else
         {
             throw new ResourceNotFoundException(Long.toString(id));
         }
@@ -69,17 +74,15 @@ public class PlantServiceImpl implements PlantService{
 
     @Transactional
     @Override
-    public Plant save(Plant plant, Authentication authentication)
+    public Plant save(Plant Plant)
     {
-        plant.setUser(userRepository.findByUsername(authentication.getName()));
-        Plant savePlant =  plantRepository.save(plant);
-        smsSender.sendSms(new SmsRequest(destinationNumber, "Your watering schedule now includes " + savePlant.getSpecies()));
-        return savePlant;
-    }
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-    @Override
-    public Plant save(Plant newPlant) {
-        return newPlant;
+//        Plant.setUser(userRepository.findByUsername(authentication.getName()));
+        User currentUser = userRepository.findByUsername(authentication.getName());
+        Plant savePlant =  plantRepository.save(Plant);
+        smsSender.sendSms(new SmsRequest(destinationNumber, "Your watering schedule now includes: " + savePlant.getName()));
+        return savePlant;
     }
 
     @Override

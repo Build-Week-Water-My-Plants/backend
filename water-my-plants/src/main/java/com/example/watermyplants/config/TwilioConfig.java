@@ -1,5 +1,8 @@
 package com.example.watermyplants.config;
 
+import com.sun.istack.NotNull;
+import com.twilio.Twilio;
+import com.twilio.http.TwilioRestClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +21,16 @@ public class TwilioConfig {
     @Value("${twilio.account-sid}")
     private String accountSid;
 
+    @Value("$(twilio.destinat-number.path)")
+    private String destinationNumber;
+
+//    public TwilioRestClient client;
+//    client = new TwilioRestClient(accountSid, authToken);
+
     public TwilioConfig() {
+
+//        Twilio.init(admin, authToken);
+//        client = new TwilioRestClient(accountSid, authToken);
     }
 
     public String getAccountSid() {
@@ -44,4 +56,12 @@ public class TwilioConfig {
     public void setTrialNumber(String trialNumber) {
         this.trialNumber = trialNumber;
     }
+
+//    public String getDestinationNumber() {
+//        return destinationNumber;
+//    }
+//
+//    public void setDestinationNumber(String destinationNumber) {
+//        this.destinationNumber = destinationNumber;
+//    }
 }

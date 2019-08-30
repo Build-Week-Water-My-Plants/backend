@@ -2,6 +2,7 @@ package com.example.watermyplants.services;
 
 import com.example.watermyplants.config.TwilioConfig;
 import com.example.watermyplants.models.SmsRequest;
+import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.rest.api.v2010.account.MessageCreator;
 import com.twilio.type.PhoneNumber;
@@ -22,12 +23,15 @@ public class SmsSenderImpl implements SmsSender {
     public SmsSenderImpl(TwilioConfig twilioConfig)
     {
         this.twilioConfig = twilioConfig;
+        Twilio.init(twilioConfig.getAccountSid(), twilioConfig.getAuthToken());
     }
+
 
     @Override
     public void sendSms(SmsRequest smsRequest) {
         if (isPhoneNumberValid(smsRequest.getPhoneNumber())) {
             PhoneNumber to = new PhoneNumber(smsRequest.getPhoneNumber());
+            System.out.println(to);
             PhoneNumber from = new PhoneNumber(twilioConfig.getTrialNumber());
             String message = smsRequest.getMessage();
             MessageCreator creator = Message.creator(to, from, message);

@@ -4,15 +4,16 @@ package com.example.watermyplants.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "plants")
-public class Plant extends Auditable{
-
-
+public class Plant extends Auditable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long plantid;
+    private long plantsid;
 
     @Column(nullable = false)
     private String species;
@@ -23,17 +24,17 @@ public class Plant extends Auditable{
     @Column(nullable = false)
     private String time;
 
-    @Column
+    @Column(nullable = false)
     private String location;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid",
-                nullable = false)
+            nullable = false)
     @JsonIgnoreProperties({"plants", "hibernateLazyInitializer"})
     private User user;
 
-    public Plant() {
-
+    public Plant()
+    {
     }
 
     public Plant(String species, String name, String time, String location, User user) {
@@ -44,17 +45,16 @@ public class Plant extends Auditable{
         this.user = user;
     }
 
-    public Plant(long plantid, User currentUser) {
+    public Plant(long plantsid, User currentUser) {
         super();
     }
 
-
     public long getPlantid() {
-        return plantid;
+        return plantsid;
     }
 
     public void setPlantid(long plantid) {
-        this.plantid = plantid;
+        this.plantsid = plantid;
     }
 
     public String getSpecies() {
@@ -96,6 +96,5 @@ public class Plant extends Auditable{
     public void setUser(User user) {
         this.user = user;
     }
-    
-}
 
+}

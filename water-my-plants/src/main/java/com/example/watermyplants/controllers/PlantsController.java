@@ -2,6 +2,7 @@ package com.example.watermyplants.controllers;
 
 import com.example.watermyplants.models.Plant;
 import com.example.watermyplants.services.PlantService;
+import com.example.watermyplants.services.SmsSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class PlantsController
 
     @Autowired
     PlantService plantService;
+
+    @Autowired
+    SmsSender smsSender;
 
     @GetMapping(value = "/plants",
             produces = {"application/json"})
@@ -73,12 +77,13 @@ public class PlantsController
 
         newPlant = plantService.save(newPlant);
 
+
         // set the location header for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();
         URI newPlantURI = ServletUriComponentsBuilder.fromCurrentRequest().path("/{plantid}").buildAndExpand(newPlant.getPlantid()).toUri();
         responseHeaders.setLocation(newPlantURI);
 
-        return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(newPlant, responseHeaders, HttpStatus.CREATED);
     }
 
 

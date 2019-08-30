@@ -15,7 +15,5 @@ public interface PlantService {
 
     void delete(long id);
 
-    Plant save(Plant plant, Authentication authentication);
-
-    Plant save(Plant newPlant);
+    Plant save(Plant plant);
 }
