@@ -16,8 +16,11 @@
 ## Usage
 
   
-**Clone the repo, open in IntelliJ and pray for good luck!**
+Clone the repo, open in IntelliJ and pray for good luck!  
 
+## API Documentation  
+
+[Swagger2 Documentation](https://doc-watermyplants.herokuapp.com/swagger-ui.html)
 
 ## Author
 
