@@ -1,6 +1,7 @@
 package com.example.watermyplants.services;
 
 import com.example.watermyplants.models.Plant;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
