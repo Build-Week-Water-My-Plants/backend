@@ -2,7 +2,6 @@ package com.example.watermyplants.controllers;
 
 import com.example.watermyplants.models.Plant;
 import com.example.watermyplants.services.PlantService;
-import com.example.watermyplants.services.SmsSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +27,8 @@ public class PlantsController
     @Autowired
     PlantService plantService;
 
-    @Autowired
-    SmsSender smsSender;
+//    @Autowired
+//    SmsSender smsSender;
 
     @GetMapping(value = "/plants",
             produces = {"application/json"})

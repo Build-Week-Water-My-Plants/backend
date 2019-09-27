@@ -2,7 +2,6 @@ package com.example.watermyplants.services;
 
 import com.example.watermyplants.exceptions.ResourceNotFoundException;
 import com.example.watermyplants.models.Plant;
-import com.example.watermyplants.models.SmsRequest;
 import com.example.watermyplants.models.User;
 import com.example.watermyplants.repositories.PlantRepository;
 import com.example.watermyplants.repositories.UserRepository;
@@ -19,14 +18,14 @@ import java.util.List;
 @Service(value = "plantService")
 public class PlantServiceImpl implements PlantService
 {
-    @Autowired
-    private SmsSender smsSender;
-
-    @Value("${twilio.trial-number.path}")
-    private String trialNumber;
-
-    @Value("$twilio.destination-number.path")
-    private String destinationNumber;
+//    @Autowired
+//    private SmsSender smsSender;
+//
+//    @Value("${twilio.trial-number.path}")
+//    private String trialNumber;
+//
+//    @Value("$twilio.destination-number.path")
+//    private String destinationNumber;
 
 
     @Autowired
@@ -81,7 +80,7 @@ public class PlantServiceImpl implements PlantService
 //        Plant.setUser(userRepository.findByUsername(authentication.getName()));
         User currentUser = userRepository.findByUsername(authentication.getName());
         Plant savePlant =  plantRepository.save(Plant);
-        smsSender.sendSms(new SmsRequest(destinationNumber, "Your watering schedule now includes: " + savePlant.getName()));
+//        smsSender.sendSms(new SmsRequest(destinationNumber, "Your watering schedule now includes: " + savePlant.getName()));
         return savePlant;
     }
 
